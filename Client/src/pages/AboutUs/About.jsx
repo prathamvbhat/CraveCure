@@ -2,6 +2,11 @@ import { Card, CardHeader, CardContent } from '../../components/ui/card';
 import { CheckCircle, Heart } from 'lucide-react';
 import { motion } from 'framer-motion'; // For animation
 
+import mission from "../../assets/mission.png";
+import donation from "../../assets/donation.jpg";
+import acheviment from "../../assets/acheviment.jpg";
+import goal from "../../assets/goal.jpg"
+
 const About = () => {
   return (
     <div className="bg-gray-100 min-h-screen p-6">
@@ -43,7 +48,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <img 
-              src="/path/to/mission-image.jpg" 
+              src={mission} 
               alt="Mission Image" 
               className="w-full h-auto rounded-lg shadow-md"
             />
@@ -79,7 +84,7 @@ const About = () => {
             transition={{ duration: 0.9 }}
           >
             <img 
-              src="/path/to/achievements-image.jpg" 
+              src={acheviment}
               alt="Achievements Image" 
               className="w-full h-auto rounded-lg shadow-md"
             />
@@ -115,7 +120,7 @@ const About = () => {
             transition={{ duration: 1.1 }}
           >
             <img 
-              src="/path/to/objectives-image.jpg" 
+              src={donation}
               alt="Objectives Image" 
               className="w-full h-auto rounded-lg shadow-md"
             />
@@ -151,7 +156,7 @@ const About = () => {
             transition={{ duration: 1.3 }}
           >
             <img 
-              src="/path/to/goals-image.jpg" 
+              src={goal}
               alt="Goals Image" 
               className="w-full h-auto rounded-lg shadow-md"
             />

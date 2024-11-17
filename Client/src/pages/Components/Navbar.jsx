@@ -7,43 +7,48 @@ import { ChevronDown, User, LogOut,SquareUserRound,Search,MessageCircleMore } fr
 import logo from '../../assets/logo.png'
 export default function Navbar() {
   const [isDonateOpen, setIsDonateOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
+  // Function to close the dropdown
+  const handleMenuItemClick = () => {
+    setOpen(false);
+  };
   return (
     <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
       {/* Logo / Brand Name */}
       <div className="flex text-2xl font-bold text-green-600">
-        Cravecure<img src={logo} alt="Logo" className="w-10 h-8 mx-auto" />
+      <Link to="/dashboard">Cravecure</Link><img src={logo} alt="Logo" className="w-10 h-8 mx-auto" />
       </div>
 
       {/* Nav Menu */}
       <ul className="flex space-x-6 items-center">
         <li>
-          <Button variant="ghost">Home</Button>
+        <Link to="/dashboard"><Button variant="ghost">Home</Button></Link>
         </li>
 
         {/* Donate Menu */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center space-x-1">
-              <span>Donate</span>
-              <ChevronDown className="w-4 h-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="mt-2 bg-white shadow-lg rounded-lg">
-            <DropdownMenuItem onSelect={() => alert("Donate Food clicked")}>
-              Food
-            </DropdownMenuItem>
-            <DropdownMenuItem onSelect={() => alert("Donate Cloth clicked")}>
-              Cloth
-            </DropdownMenuItem>
-            <DropdownMenuItem onSelect={() => alert("Donate Cloth clicked")}>
-              Stationary Items
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <DropdownMenu open={open} onOpenChange={setOpen}>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="flex items-center space-x-1">
+          <span>Donate</span>
+          <ChevronDown className="w-4 h-4" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="mt-2 bg-white shadow-lg rounded-lg">
+        <DropdownMenuItem onClick={handleMenuItemClick}>
+          <Link to={"/foodDonation"}>Food</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={handleMenuItemClick}>
+          <Link to={"/clothDonation"}>Cloth</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={handleMenuItemClick}>
+          <Link to={"/stationaryDonation"}>Stationary Items</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
 
         <li>
-           <Button variant="ghost">Community</Button>
+        <Link to="/community"><Button variant="ghost">Community</Button></Link>
         </li>
         <li>
           <Link to="/aboutus"><Button variant="ghost">About Us</Button></Link>

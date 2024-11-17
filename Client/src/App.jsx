@@ -1,11 +1,15 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute';
-import  Notfound from './pages/Notfound';
-import React from 'react';
+import Notfound from './pages/Notfound';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import AboutUs from './pages/AboutUs'
+import Layout from './pages/Layout';
+import Community from './pages/Community';
+import StationaryDonation from './pages/Donation/Stationary';
+import ClothDonation from './pages/Donation/Cloth';
+import FoodDonation from './pages/Donation/Food';
 
 function App() {
   const router = createBrowserRouter([
@@ -30,20 +34,36 @@ function App() {
       element: <Navigate to="/notfound" replace />,
     },
     {
-      path: "/dashboard",
       element: (
         <ProtectedRoute>
-          <Dashboard />
+        <Layout />
         </ProtectedRoute>
       ),
-    },
-    {
-      path: "/aboutus",
-      element: (
-        <ProtectedRoute>
-          <AboutUs/>
-        </ProtectedRoute>
-      ),
+      children: [
+        {
+          path: "/dashboard",
+          element:<Dashboard />
+        },
+        {
+          path: "/aboutus",
+          element:<AboutUs/>
+        },
+        {
+          path: "/community",
+          element: <Community />
+        },{
+          path: "/foodDonation",
+          element: <FoodDonation />
+        },
+        {
+          path: "/clothDonation",
+          element: <ClothDonation />
+        },
+        {
+          path: "/stationaryDonation",
+          element: <StationaryDonation />
+        }
+      ]
     },
     {
       future: {

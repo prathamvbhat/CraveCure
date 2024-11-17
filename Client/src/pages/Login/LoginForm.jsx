@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import  {Link} from "react-router-dom";
 import { Button } from "../../components/ui/button";
-import { SendHorizontal, X } from "lucide-react";
+import { SendHorizontal, X,User,Building2,Lock } from "lucide-react";
 import Axios from "axios";
 import {
   Card,
@@ -98,28 +98,41 @@ function LoginForm() {
               <form onSubmit={onSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="username">Username</Label>
+                  <div className="relative mt-1">
+                  <User className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400 w-5 h-5"/>
                   <Input
                     id="username"
                     placeholder="Enter Username"
                     value={loginUserName}
                     onChange={(e) => setLoginUserName(e.target.value)}
+                    className="pl-10"
                   />
+                  </div>
                 </div>
                 <div className="space-y-2">
+                  
                   <Label htmlFor="password">Password</Label>
+                  <div className="relative mt-1">
+                    <Lock className="absolute top-1/2 left-3 -translate-y-1
+                    2 text-gray-400 w-5 h-5"/>
                   <Input
                     id="password"
                     type="password"
                     placeholder="Enter Password"
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
+                    className="pl-10"
                   />
+                </div>
                 </div>
               <div className="space-y-2 mt-4">
                 <Label htmlFor="typeoforg">Type of Organisation</Label>
+                <div className="relative mt-1">
+                  <Building2 className="absolute top-1/2 left-3 -translate-y-1
+                  2 text-gray-400 w-5 h-5"/>
                 <Select>
-                  <SelectTrigger id="typeoforg">
-                    <SelectValue placeholder="Select" />
+                  <SelectTrigger id="typeoforg" className="pl-10">
+                    <SelectValue placeholder="Select"/>
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Donor">Donor</SelectItem>
@@ -127,6 +140,8 @@ function LoginForm() {
                     <SelectItem value="Orphanage">Orphanage</SelectItem>
                   </SelectContent>
                 </Select>
+                </div>
+                <div className="space-y-2 mt-4">
                 <Label className="mt-4" htmlFor="orgid">Enter Your Organisation/Donor ID</Label>
                 <InputOTP maxLength={6}>
                   <InputOTPGroup>
@@ -135,6 +150,7 @@ function LoginForm() {
                     ))}
                   </InputOTPGroup>
                 </InputOTP>
+              </div>
               </div>
               </form>
             </CardContent>

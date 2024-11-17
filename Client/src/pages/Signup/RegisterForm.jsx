@@ -11,7 +11,7 @@ import {
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import { Link } from "react-router-dom";
-import { SendHorizontal,CircleX } from "lucide-react";
+import { SendHorizontal,CircleX,User,Mail,KeyRound} from "lucide-react";
 import video from "../../assets/introvid.mp4"; // Update the path accordingly
 import logo from "../../assets/logo.png"; // Update the path accordingly
 function RegisterForm() {
@@ -38,7 +38,7 @@ function RegisterForm() {
         <Card className="p-2 flex items-center space-x-2">
           <Label>Already have an account?</Label>
           <Link to="/signin">
-            <Button variant="outline" className="bg-green-700">Sign Up</Button>
+            <Button variant="outline" className="bg-green-700">Sign In</Button>
           </Link>
         </Card>
       </div>
@@ -56,32 +56,44 @@ function RegisterForm() {
               <form onSubmit={handleRegister} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
+                  <div className="relative mt-1">
+                  <User className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <Input
                     id="name"
                     placeholder="Enter your name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    className="pl-10"
                   />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
+                  <div className="relative mt-1">
+                  <Mail className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <Input
                     id="email"
                     type="email"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="pl-10"
                   />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="password">Password</Label>
+                  <div className="relative mt-1">
+                  <KeyRound className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <Input
                     id="password"
                     type="password"
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="pl-10"
                   />
+                  </div>
                 </div>
               </form>
             </CardContent>
