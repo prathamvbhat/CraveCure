@@ -31,7 +31,8 @@ import video from "../../assets/introvid.mp4"; // Update the path accordingly
 import logo from "../../assets/logo.png"; // Update the path accordingly
 
 //Import firebase componentes
-import {createUserWithEmailAmdPassword} from "firebase/auth"
+import {auth} from "../../../config/firebase"
+import {createUserWithEmailAndPassword} from "firebase/auth"
 
 function LoginForm() {
   const [loginUserName, setLoginUserName] = useState("");
@@ -40,19 +41,23 @@ function LoginForm() {
   const [statusHolder, setStatusHolder] = useState("message");
 
   const loginUser = (e) => {
-    e.preventDefault();
-    Axios.post("http://localhost:3002/login", {
-      LoginUserName: loginUserName,
-      LoginPassword: loginPassword,
-    }).then((response) => {
-      if (response.data.message || loginUserName === "" || loginPassword === "") {
-        setLoginStatus(`Credentials Don't Exist!`);
-      } else {
-        // Redirect logic here
-        console.log(statusHolder);
-      }
-    });
-  };
+    
+  }
+
+  // const loginUser = (e) => {
+  //   e.preventDefault();
+  //   Axios.post("http://localhost:3002/login", {
+  //     LoginUserName: loginUserName,
+  //     LoginPassword: loginPassword,
+  //   }).then((response) => {
+  //     if (response.data.message || loginUserName === "" || loginPassword === "") {
+  //       setLoginStatus(`Credentials Don't Exist!`);
+  //     } else {
+  //       // Redirect logic here
+  //       console.log(statusHolder);
+  //     }
+  //   });
+  // };
 
   useEffect(() => {
     if (loginStatus !== "") {
