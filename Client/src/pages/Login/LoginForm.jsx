@@ -30,6 +30,9 @@ import {
 import video from "../../assets/introvid.mp4"; // Update the path accordingly
 import logo from "../../assets/logo.png"; // Update the path accordingly
 
+//Import firebase componentes
+import {createUserWithEmailAmdPassword} from "firebase/auth"
+
 function LoginForm() {
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
