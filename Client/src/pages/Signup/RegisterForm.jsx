@@ -12,8 +12,8 @@ import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import { Link } from "react-router-dom";
 import { SendHorizontal,CircleX,User,Mail,KeyRound} from "lucide-react";
-import video from "../../assets/introvid.mp4"; // Update the path accordingly
-import logo from "../../assets/logo.png"; // Update the path accordingly
+import video from "../../assets/introvid.mp4"; 
+import logo from "../../assets/logo.png";
 function RegisterForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
