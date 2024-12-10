@@ -40,24 +40,24 @@ function LoginForm() {
   const [loginStatus, setLoginStatus] = useState("");
   const [statusHolder, setStatusHolder] = useState("message");
 
-  const loginUser = (e) => {
-    
-  }
-
   // const loginUser = (e) => {
-  //   e.preventDefault();
-  //   Axios.post("http://localhost:3002/login", {
-  //     LoginUserName: loginUserName,
-  //     LoginPassword: loginPassword,
-  //   }).then((response) => {
-  //     if (response.data.message || loginUserName === "" || loginPassword === "") {
-  //       setLoginStatus(`Credentials Don't Exist!`);
-  //     } else {
-  //       // Redirect logic here
-  //       console.log(statusHolder);
-  //     }
-  //   });
-  // };
+  //   const [email, ]
+  // }
+
+  const loginUser = (e) => {
+    e.preventDefault();
+    Axios.post("http://localhost:3002/login", {
+      LoginUserName: loginUserName,
+      LoginPassword: loginPassword,
+    }).then((response) => {
+      if (response.data.message || loginUserName === "" || loginPassword === "") {
+        setLoginStatus(`Credentials Don't Exist!`);
+      } else {
+        // Redirect logic here
+        console.log(statusHolder);
+      }
+    });
+  };
 
   useEffect(() => {
     if (loginStatus !== "") {

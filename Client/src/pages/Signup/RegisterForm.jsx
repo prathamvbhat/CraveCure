@@ -14,14 +14,18 @@ import { Link } from "react-router-dom";
 import { SendHorizontal,CircleX,User,Mail,KeyRound} from "lucide-react";
 import video from "../../assets/introvid.mp4"; // Update the path accordingly
 import logo from "../../assets/logo.png"; // Update the path accordingly
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../config/firebase";
+
 function RegisterForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (e) => {
+  const handleRegister = async(e) => {
     e.preventDefault();
     // Registration logic here
+    await createUserWithEmailAndPassword(auth, name, email, password)
     console.log("Name:", name, "Email:", email, "Password:", password);
   };
 
